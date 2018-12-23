@@ -1,0 +1,163 @@
+﻿@model CpaWebApp.Models.SearchViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Чё пацаны аниме?</h1>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let form = $('#search');
+        console.log(form);
+        $(form).submit(function () {
+            var btn = $(".submit-btn");
+            console.log(btn);
+            btn.button('loading');
+            $.ajax({
+                dataType: "json",
+                url: $(form).attr('action'),
+                data: $(form).serialize(),
+                success: function (result, status) {
+                    btn.button('reset');
+                    if (status == 'success') {
+
+                        result.forEach(function (item) {
+                            //    console.log(item);
+                            printItem(item);
+                        });
+                    }
+
+                }
+            });
+            return false;
+        });
+    });
+
+    //$(document).ready(function () {
+    //    let form = $('#search');
+    //    console.log(form);
+    //    $(form).submit(function () {
+    //        var btn = $(".submit-btn");
+    //        console.log(btn);
+    //        btn.button('loading');
+    //        $.ajax({
+    //            dataType: "json",
+    //            url: $(form).attr('action'),
+    //            data: $(form).serialize(),
+    //            success: function (result, status) {
+    //                btn.button('reset');
+    //                if (status == 'success') {
+
+    //                    result.forEach(function (item) {
+    //                        //    console.log(item);
+    //                        printItem(item);
+    //                    });
+    //                }
+
+    //            }
+    //        });
+    //        return false;
+    //    });
+    //});
+
+    function printItem(item) {
+        $("#result").append($("<div/>").html("<a href=" + item.url + ">" + item.russian + "</a>"));
+    }
+
+
+</script>
+
+@*<img src="~/Content/Images/Gifs/1483223559342.gif" />
+    <img src="~/Content/Images/Gifs/39co.gif" />
+    <img src="~/Content/Images/Gifs/44357021_c4d29fb4e160d173eddba254de25fa7a_800.gif" />
+    <img src="~/Content/Images/Gifs/blue-bird-waving-hello.gif" />
+    <img src="~/Content/Images/Gifs/gif-snoop-dogg-10.gif" />
+    <img src="~/Content/Images/Gifs/giphy (1).gif" />
+    <img src="~/Content/Images/Gifs/giphy.gif" />
+    <img src="~/Content/Images/Gifs/source.gif" />*@
+
+<div id="result" style="padding:10px;">
+
+</div>
+
+
+
+<form id="search" action="~/api/Search/">
+
+
+
+    <input id="sub_btn" data-loading-text="Загрузка..." type="submit" class="btn btn-primary submit-btn" />
+    <input id="sub_btn" data-loading-text="Загрузка..." type="submit" class="btn btn-primary submit-btn" style="position:fixed; right:50px; bottom:50px; width:150px; height:50px; font-size:25px;" />
+    <h1>Текст запроса</h1>
+
+
+    <div class="form-group">
+        <input class="form-control" type="text" name="text" placeholder="Введите часть названия" />
+    </div>
+
+    <div class="form-group">
+        <input type="checkbox" name="censored" /> Цензура
+    </div>
+
+    <h1>Типы тайтлов</h1>
+    <div>
+        @foreach (var item in Model.Kinds)
+        {
+            <p style="display:inline-block; width:19%">
+
+                <input name="kinds" type="checkbox" value="@item " />  @Html.DisplayFor(i => item)
+
+            </p>
+        }
+    </div>
+
+    <h1>Статусы тайтлов</h1>
+    <div>
+        @foreach (var item in Model.TitleStatus)
+        {
+            <p style="display:inline-block; width:19%">
+
+                <input name="TitleStatuses" type="checkbox" value="@item " />  @Html.DisplayFor(i => item)
+
+            </p>
+        }
+    </div>
+
+
+    <h1>Сезоны</h1>
+    <div>
+        @foreach (var item in Model.Season)
+        {
+            <p style="display:inline-block; width:19%">
+
+                <input name="seasons" type="checkbox" value="@item.Key" />  @Html.DisplayFor(i => item.Value)
+
+            </p>
+        }
+    </div>
+
+    <h1>Жанры</h1>
+    <div>
+        @foreach (var item in Model.Genres)
+        {
+            <p style="display:inline-block; width:19%">
+                <input name="genres" type="checkbox" value="@item.id" /> @Html.DisplayFor(i => item.russian)
+            </p>
+        }
+    </div>
+    <hr />
+    <h2>Студии</h2>
+    <div>
+        @foreach (var item in Model.Studios)
+        {
+            <p style="display:inline-block; width:19%">
+
+                <input name="studios" type="checkbox" value="@item.id" /> @Html.DisplayFor(i => item.name)
+            </p>
+        }
+    </div>
+</form>
+

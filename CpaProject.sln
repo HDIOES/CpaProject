@@ -3,9 +3,35 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{F3E54802-8BAE-4193-8B14-6476F988ACF1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{60FC509E-A617-4E5D-B992-2D1CEB68CF99}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CpaWebApp", "Web\CpaWebApp\CpaWebApp.csproj", "{48E23AE6-2DBA-45B6-A82C-FD37F96D3A74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShikiApiLib", "Api\ShikiApiLib\ShikiApiLib.csproj", "{78EF1C71-4563-46A8-B078-C4F74B93752A}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{48E23AE6-2DBA-45B6-A82C-FD37F96D3A74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48E23AE6-2DBA-45B6-A82C-FD37F96D3A74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48E23AE6-2DBA-45B6-A82C-FD37F96D3A74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48E23AE6-2DBA-45B6-A82C-FD37F96D3A74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78EF1C71-4563-46A8-B078-C4F74B93752A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78EF1C71-4563-46A8-B078-C4F74B93752A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78EF1C71-4563-46A8-B078-C4F74B93752A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78EF1C71-4563-46A8-B078-C4F74B93752A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{48E23AE6-2DBA-45B6-A82C-FD37F96D3A74} = {60FC509E-A617-4E5D-B992-2D1CEB68CF99}
+		{78EF1C71-4563-46A8-B078-C4F74B93752A} = {F3E54802-8BAE-4193-8B14-6476F988ACF1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {482712B4-20CC-47A8-B66F-B1484A0EA17D}

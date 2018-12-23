@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<docs>
+  <ShikiApi>
+    <class name="ShikiApi">
+      <summary>Класс авторизованного пользователя. Инициализированный экземпляр класса означает авторизованного пользователя</summary>
+    </class>
+    
+    <property name="Nickname">
+      <summary>Логин пользователя на сайте</summary>
+    </property>
+    <property name="AccessToken">
+      <summary>Токен для работы с API</summary>
+    </property>
+    <property name="CurrentUserId">
+      <summary>ID пользователя</summary>
+    </property>
+    <property name="Info">
+      <summary>Хранит последний результат метода <see cref="GetUserInfo" /></summary>
+    </property>
+    <property name="AnimeRates">
+      <summary>Хранит последний результат метода <see cref="GetAnimeRates" /></summary>
+    </property>
+    <property name="MangaRates">
+      <summary>Хранит последний результат метода <see cref="GetMangaRates" /></summary>
+    </property>
+
+    <constructor name="ShikiApi1">
+      <summary>Инициализирует нового пользователя, запрашивая токен и ID пользователя с сайта.</summary>
+      <param name="nickname"> Логин пользователя на сайте </param>
+      <param name="password"> Пароль пользователя на сайте </param>
+    </constructor>
+    <constructor name="ShikiApi2">
+      <summary>Инициализирует нового пользователя, явно задавая значения токена и ID пользователя.</summary>
+      <param name="nickname">Логин пользователя на сайте</param>
+      <param name="access_token">Токен для работы с API</param>
+      <param name="current_user_id">ID пользователя</param>
+    </constructor>
+
+    <method name="GetUserInfo">
+      <summary>Получает инфо о пользователе</summary>
+    </method>
+    <method name="GetAnimeRates">
+      <summary>Получает список аниме с оценками и прогрессом пользователя</summary>
+      <param name="limit">Количество возвращаемых аниме (по умолчанию: все)</param>
+    </method>
+    <method name="GetMangaRates">
+      <summary>Получает список манги с оценками и прогрессом пользователя</summary>
+      <param name="limit">Количество возвращаемой манги (по умолчанию: все)</param>
+    </method>
+    <method name="UpdateAnimeRate">
+      <summary>Редактирует аниме в списке пользователя</summary>
+      <param name="title">Аниме требуещее правки</param>
+      <param name="status">Статус просмотра</param>
+      <param name="score">Оценка</param>
+      <param name="episodes">Количество просмотренных эпизодов</param>
+    </method>
+    <method name="UpdateMangaRate">
+      <summary>Редактирует мангу в списке пользователя</summary>
+      <param name="title">Манга требующая правки</param>
+      <param name="status">Статус прочтения</param>
+      <param name="score">Оценка</param>
+      <param name="volumes">Количество прочитанных глав</param>
+      <param name="chapters">Количество прочитанных топов</param>
+    </method>
+    <method name="CreateAnimeRate">
+      <summary>Добавляет новое аниме в список пользователя</summary>
+      <param name="title_id">ID аниме</param>
+      <param name="status">Статус просмотра</param>
+      <param name="score">Оценка</param>
+      <param name="episodes">Количество просмотренных эпизодов</param>
+    </method>
+    <method name="CreateMangaRate">
+      <summary>Добавляет новую мангу в список пользователя</summary>
+      <param name="title_id">ID манги</param>
+      <param name="status">Статус прочтения</param>
+      <param name="score">Оценка</param>
+      <param name="volumes">Количество прочитанных глав</param>
+      <param name="chapters">Количество прочитанных топов</param>
+    </method>
+    <method name="DeleteRate">
+      <summary>Удаляет выбранный тайтл (аниме или мангу) из списка пользователя</summary>
+      <param name="user_rate_id">ID тайтла в списке пользователя (не путать с ID самого тайтла)</param>
+    </method>
+    <method name="GetAnimeRate">
+      <summary>Получает аниме из списка пользователя</summary>
+      <param name="user_rate_id">ID тайтла в списке пользователя (не путать с ID самого тайтла)</param>
+    </method>
+    <method name="GetMangaRate">
+      <summary>Получает мангу из списка пользователя</summary>
+      <param name="user_rate_id">ID тайтла в списке пользователя (не путать с ID самого тайтла)</param>
+    </method>
+    <method name="GetAnimeFullInfo">
+      <summary>Получает подробную информацию об аниме</summary>
+      <param name="title_id">ID аниме</param>
+    </method>
+    <method name="GetMangaFullInfo">
+      <summary>Получает подробную информацию об манге</summary>
+      <param name="title_id">ID манги</param>
+    </method>
+  </ShikiApi>
+
+  <ShikiApiStatic>
+    <class name="ShikiApiStatic">
+      <summary>Статический класс, содержаший в себе методы, не требующие авторизации</summary>
+    </class>
+    <property name="Domen">
+      <summary>"https://shikimori.org/"</summary>
+    </property>
+    <property name="DomenApi">
+      <summary>"https://shikimori.org/api/"</summary>
+    </property>
+    <property name="ClientName">
+      <summary>Имя User-Agent, от которого будут совершаться запросы</summary>
+    </property>
+
+    <method name="GetUserInfo">
+      <summary>Получает инфо о пользователе</summary>
+    </method>
+    <method name="GetAnimeRates">
+      <summary>Получает список аниме с оценками и прогрессом пользователя</summary>
+      <param name="user_id">ID пользователя</param>
+      <param name="limit">Количество возвращаемых аниме (по умолчанию: все)</param>
+    </method>
+    <method name="GetMangaRates">
+      <summary>Получает список манги с оценками и прогрессом пользователя</summary>
+      <param name="user_id">ID пользователя</param>
+      <param name="limit">Количество возвращаемой манги (по умолчанию: все)</param>
+    </method>
+    <method name="GetTitleType1">
+      <summary>Возвращает тип тайтла из списка пользователя (аниме или манга)</summary>
+      <param name="rate">Тайтл из списка пользователя</param>
+    </method>
+    <method name="GetTitleType2">
+      <summary>Возвращает тип тайтла из списка пользователя (аниме или манга)</summary>
+      <param name="rate">Тайтл из списка пользователя</param>
+    </method>
+    <method name="GetAnimeFullInfo">
+      <summary>Получает подробную информацию об аниме</summary>
+      <param name="title_id">ID аниме</param>
+    </method>
+    <method name="GetMangaFullInfo">
+      <summary>Получает подробную информацию об манге</summary>
+      <param name="title_id">ID манги</param>
+    </method>
+    <method name="GetStudios">
+      <summary>Получить список аниме студий</summary>
+    </method>
+    <method name="GetStudio">
+      <summary>Получить аниме студию по ID</summary>
+      <param name="id">ID студии</param>
+    </method>
+    <method name="GetPublishers">
+      <summary>Получить список издательств манги</summary>
+    </method>
+    <method name="GetPublisher">
+      <summary>Получить издательство манги по ID</summary>
+      <param name="id">ID издательства</param>
+    </method>
+    <method name="GetGenres">
+      <summary>Получить список жанров</summary>
+    </method>
+    <method name="GetGenre">
+      <summary>Получить жанр по его ID</summary>
+      <param name="id">ID жанра</param>
+    </method>
+    <method name="GetVideos">
+      <summary>Получить список видео (опенинги, эндинги) по ID аниме. Не возвращает полноценных эпизодов!</summary>
+    </method>
+  </ShikiApiStatic>
+  
+  <Enums>
+    <enum name="TitleType">
+      <summary>Задаёт тип тайтла (аниме или манга)</summary>
+    </enum>
+    <enum name="TitleType.anime">
+      <summary>Задаёт тип тайтла (аниме)</summary>
+    </enum>
+    <enum name="TitleType.manga">
+      <summary>Задаёт тип тайтла (манга)</summary>
+    </enum>
+    
+    <enum name="UserStatus">
+      <summary>Статус просмотра пользователя</summary>
+    </enum>
+    <enum name="UserStatus.planned">
+      <summary>Запланировано</summary>
+    </enum>
+    <enum name="UserStatus.watching">
+      <summary>Смотрю/Читаю</summary>
+    </enum>
+    <enum name="UserStatus.completed">
+      <summary>Просмотрено/Прочитано</summary>
+    </enum>
+    <enum name="UserStatus.on_hold">
+      <summary>Отложено</summary>
+    </enum>
+    <enum name="UserStatus.dropped">
+      <summary>Брошено</summary>
+    </enum>
+    <enum name="UserStatus.rewatching">
+      <summary>Пересматриваю/Перечитываю</summary>
+    </enum>
+    
+    <enum name="Order">
+      <summary>Сортировка тайтлов</summary>
+    </enum>
+    <enum name="Order.ranked">
+      <summary>По рейтингу</summary>
+    </enum>
+    <enum name="Order.popularity">
+      <summary>По популярности</summary>
+    </enum>
+    <enum name="Order.name">
+      <summary>По алфавиту</summary>
+    </enum>
+    <enum name="Order.aired_on">
+      <summary>По дате выхода</summary>
+    </enum>
+    <enum name="Order.id">
+      <summary>По ID тайтла</summary>
+    </enum>
+    <enum name="Order.random">
+      <summary>В случайном порядке</summary>
+    </enum>
+    <enum name="Order.status">
+      <summary>По статусу выхода тайтла</summary>
+    </enum>
+    <enum name="Order.type">
+      <summary>По типу тайтла (TV, Фильм и т.п.)</summary>
+    </enum>
+    <enum name="Order.episodes">
+      <summary>По количеству эпизодов</summary>
+    </enum>
+    <enum name="Order.volumes">
+      <summary>По количеству томов</summary>
+    </enum>
+    <enum name="Order.chapters">
+      <summary>По количеству глав</summary>
+    </enum>
+    
+    <enum name="Rating">
+      <summary>Возрастной рейтинг</summary>
+    </enum>
+    <enum name="Rating.g">
+      <summary>G - Нет возрастных ограничений</summary>
+    </enum>
+    <enum name="Rating.pg">
+      <summary>PG - Рекомендуется присутствие родителей</summary>
+    </enum>
+    <enum name="Rating.pg_13">
+      <summary>PG-13 - Детям до 13 лет просмотр не желателен</summary>
+    </enum>
+    <enum name="Rating.r">
+      <summary>R - Лицам до 17 лет обязательно присутствие взрослого</summary>
+    </enum>
+    <enum name="Rating.r_plus">
+      <summary>R+ - Лицам до 17 лет просмотр запрещен</summary>
+    </enum>
+    <enum name="Rating.rx">
+      <summary>Rx - Хентай</summary>
+    </enum>
+    
+    <enum name="TitleStatus">
+      <summary>Статус выхода тайтла</summary>
+    </enum>
+    <enum name="TitleStatus.released">
+      <summary>Вышло</summary>
+    </enum>
+    <enum name="TitleStatus.latest">
+      <summary>Вышло недавно</summary>
+    </enum>
+    <enum name="TitleStatus.ongoing">
+      <summary>Сейчас выходит</summary>
+    </enum>
+    <enum name="TitleStatus.anons">
+      <summary>Анонсировано</summary>
+    </enum>
+    
+    <enum name="AKind">
+      <summary>Тип аниме</summary>
+    </enum>
+    <enum name="AKind.tv">
+      <summary>TV Сериал</summary>
+    </enum>
+    <enum name="AKind.tv_13">
+      <summary>TV Сериал (короткий, до 13 эпизодов)</summary>
+    </enum>
+    <enum name="AKind.tv_24">
+      <summary>TV Сериал (средний, до 24 эпизодов)</summary>
+    </enum>
+    <enum name="AKind.tv_48">
+      <summary>TV Сериал (длинный, больше 30 эпизодов)</summary>
+    </enum>
+    <enum name="AKind.movie">
+      <summary>Фильм</summary>
+    </enum>
+    <enum name="AKind.ova">
+      <summary>OVA</summary>
+    </enum>
+    <enum name="AKind.ona">
+      <summary>ONA</summary>
+    </enum>
+    <enum name="AKind.special">
+      <summary>Спэшл</summary>
+    </enum>
+    <enum name="AKind.music">
+      <summary>Клип</summary>
+    </enum>
+    
+    <enum name="MKind">
+      <summary>Тип манги</summary>
+    </enum>
+    <enum name="MKind.manga">
+      <summary>Манга (японский)</summary>
+    </enum>
+    <enum name="MKind.manhwa">
+      <summary>Манхва (корейский)</summary>
+    </enum>
+    <enum name="MKind.manhua">
+      <summary>Манхуа (китайский)</summary>
+    </enum>
+    <enum name="MKind.novel">
+      <summary>Новелла</summary>
+    </enum>
+    <enum name="MKind.one_shot">
+      <summary>Ваншот</summary>
+    </enum>
+    <enum name="MKind.doujin">
+      <summary>Додзинси</summary>
+    </enum>
+    
+    <enum name="Duration">
+      <summary>Продолжительность эпизода</summary>
+    </enum>
+    <enum name="Duration.S">
+      <summary>Эпизод до 10 минут</summary>
+    </enum>
+    <enum name="Duration.D">
+      <summary>Эпизод до 30 минут</summary>
+    </enum>
+    <enum name="Duration.F">
+      <summary>Эпизод более 30 минут</summary>
+    </enum>
+  </Enums>
+</docs>
