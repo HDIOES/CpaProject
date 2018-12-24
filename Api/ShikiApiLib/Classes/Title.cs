@@ -184,7 +184,7 @@ namespace ShikiApiLib
         public TitleSearch()
         {
             SearchText = "";
-            Limit = 999999;
+            Limit = 100000;
             Censored = false;
             Page = 1;
             TitleScore = 0;
