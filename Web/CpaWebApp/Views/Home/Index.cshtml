@@ -10,7 +10,7 @@
 <script>
 
     document.addEventListener("DOMContentLoaded", function () {
-        let form = $('#search');
+        var form = $('#search');
         console.log(form);
         $(form).submit(function () {
             var btn = $(".submit-btn");
@@ -22,7 +22,7 @@
                 data: $(form).serialize(),
                 success: function (result, status) {
                     btn.button('reset');
-                    if (status == 'success') {
+                    if (status === 'success') {
 
                         result.forEach(function (item) {
                             //    console.log(item);
@@ -64,7 +64,11 @@
     //});
 
     function printItem(item) {
-        $("#result").append($("<div/>").html("<a href=" + item.url + ">" + item.russian + "</a>"));
+        if (item.russian != null) {
+            $("#result").append($("<div/>").html("<a href=" + item.url + ">" + item.russian + "</a>"));
+        } else {
+            $("#result").append($("<div/>").html("<a href=" + item.url + ">" + item.name + "</a>"));
+        }
     }
 
 
@@ -89,8 +93,8 @@
 
 
 
-    <input id="sub_btn" data-loading-text="Загрузка..." type="submit" class="btn btn-primary submit-btn" />
-    <input id="sub_btn" data-loading-text="Загрузка..." type="submit" class="btn btn-primary submit-btn" style="position:fixed; right:50px; bottom:50px; width:150px; height:50px; font-size:25px;" />
+    <input id="sub_btn" data-loading-text="Загрузка..." type="submit" value="Отправить" class="btn btn-primary submit-btn" />
+    <input id="sub_btn" data-loading-text="Загрузка..." type="submit" value="Отправить" class="btn btn-primary submit-btn" style="position:fixed; right:50px; bottom:50px; width:150px; height:50px; font-size:25px;" />
     <h1>Текст запроса</h1>
 
 
