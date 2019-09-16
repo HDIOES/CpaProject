@@ -104,10 +104,10 @@
       <summary>Статический класс, содержаший в себе методы, не требующие авторизации</summary>
     </class>
     <property name="Domen">
-      <summary>"https://shikimori.org/"</summary>
+      <summary>"https://shikimori.one/"</summary>
     </property>
     <property name="DomenApi">
-      <summary>"https://shikimori.org/api/"</summary>
+      <summary>"https://shikimori.one/api/"</summary>
     </property>
     <property name="ClientName">
       <summary>Имя User-Agent, от которого будут совершаться запросы</summary>
