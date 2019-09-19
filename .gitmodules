@@ -1,0 +1,3 @@
+[submodule "Api/Shikimori-API-NET"]
+	path = Api/Shikimori-API-NET
+	url = git@github.com:Advanced-Alliance/Shikimori-API-NET.git
