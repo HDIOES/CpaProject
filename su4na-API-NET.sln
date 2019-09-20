@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CpaWebApp", "Web\CpaWebApp\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShikiApiLib", "Api\ShikiApiLib\ShikiApiLib.csproj", "{78EF1C71-4563-46A8-B078-C4F74B93752A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shikimori-API-NET", "Api\Shikimori-API-NET\Shikimori-API-NET\Shikimori-API-NET.csproj", "{C8860B68-1A9D-4B5A-A41A-5F1B545A1CEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shikimori-API-NET", "Api\Shikimori-API-NET\ShikimoriAPI\ShikimoriAPI.csproj", "{C8860B68-1A9D-4B5A-A41A-5F1B545A1CEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
