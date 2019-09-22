@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CpaWebApp", "Web\CpaWebApp\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShikiApiLib", "Api\ShikiApiLib\ShikiApiLib.csproj", "{78EF1C71-4563-46A8-B078-C4F74B93752A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shikimori-API-NET", "Api\Shikimori-API-NET\ShikimoriAPI\ShikimoriAPI.csproj", "{C8860B68-1A9D-4B5A-A41A-5F1B545A1CEF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,10 +25,6 @@ Global
 		{78EF1C71-4563-46A8-B078-C4F74B93752A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78EF1C71-4563-46A8-B078-C4F74B93752A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78EF1C71-4563-46A8-B078-C4F74B93752A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C8860B68-1A9D-4B5A-A41A-5F1B545A1CEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C8860B68-1A9D-4B5A-A41A-5F1B545A1CEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C8860B68-1A9D-4B5A-A41A-5F1B545A1CEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C8860B68-1A9D-4B5A-A41A-5F1B545A1CEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,7 +32,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{48E23AE6-2DBA-45B6-A82C-FD37F96D3A74} = {60FC509E-A617-4E5D-B992-2D1CEB68CF99}
 		{78EF1C71-4563-46A8-B078-C4F74B93752A} = {F3E54802-8BAE-4193-8B14-6476F988ACF1}
-		{C8860B68-1A9D-4B5A-A41A-5F1B545A1CEF} = {F3E54802-8BAE-4193-8B14-6476F988ACF1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {482712B4-20CC-47A8-B66F-B1484A0EA17D}
