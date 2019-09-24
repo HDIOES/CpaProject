@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CpaWebApp.Interfaces;
+using CpaWebApp.Services.AnimeDAO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -23,6 +25,7 @@ namespace CpaWebApp
         {
             services.AddMemoryCache();
             services.AddMvc();
+            services.AddTransient<IAnimeDAO, AnimeDAOVanilla>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
