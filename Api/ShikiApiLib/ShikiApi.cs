@@ -10,7 +10,8 @@ namespace ShikiApiLib
     /// <include file='Docs/ExternalSummary.xml' path='docs/ShikiApi/class[@name="ShikiApi"]/*' />
     public class ShikiApi
     {
-        private static string DomenApi { get { return "https://shikimori.one/api/"; } }
+        private static string domenApi = "https://shikimori.one/api/";
+        public static string DomenApi { get { return domenApi; } set { domenApi = value; } }
         private const int rate_list_limit = 999999;
         private UserInfo _info;
         private List<AnimeRate> _anime_rates;

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CpaWebApp.Models.Request;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Configuration;
 using ShikiApiLib;
 
 namespace CpaWebApp.Providers
@@ -12,10 +13,11 @@ namespace CpaWebApp.Providers
     {
         private DateTime _lastUpdate;
         private int _count;
+        private IConfiguration _config;
 
         private readonly IMemoryCache _cache;
 
-        public ShikimoriProvider(IMemoryCache cache)
+        public ShikimoriProvider(IMemoryCache cache, IConfiguration config)
         {
             _cache = cache;
             if (_cache.TryGetValue("last_update", out var value))
@@ -23,6 +25,8 @@ namespace CpaWebApp.Providers
                 _lastUpdate = (DateTime)value;
             }
             _count = _cache.Get<int>("count");
+
+            _config = config;
         }
 
         private int GetCountOfPages(AnimeSearch search, int from, int to, int counter = 0)
@@ -61,6 +65,9 @@ namespace CpaWebApp.Providers
 
         public AnimeShortInfo GetRandomTitle(SearchRequest request)
         {
+            ShikiApiStatic.Domen = _config.GetValue<string>("ShikiConfig:Domen");
+            ShikiApiStatic.DomenApi = _config.GetValue<string>("ShikiConfig:DomenApi");
+
             var maxPage = 1024;
             var searcher = new AnimeSearch();
             if (request.Genres != null)

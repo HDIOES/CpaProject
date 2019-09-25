@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using CpaWebApp.Models;
 using ShikiApiLib;
 using System.Runtime.Serialization;
+using Microsoft.Extensions.Configuration;
 
 namespace CpaWebApp.Controllers
 {
@@ -15,7 +16,16 @@ namespace CpaWebApp.Controllers
 
     public class HomeController : Controller
     {
-       
+
+        private IConfiguration _config;
+
+        public HomeController(IConfiguration config)
+        {
+            this._config = config;
+
+            ShikiApiStatic.Domen = _config.GetValue<string>("ShikiConfig:Domen");
+            ShikiApiStatic.DomenApi = _config.GetValue<string>("ShikiConfig:DomenApi");
+        }
 
         public static string ToEnumString<T>(T type)
         {

@@ -9,10 +9,13 @@ namespace ShikiApiLib
     /// <include file='Docs/ExternalSummary.xml' path='docs/ShikiApiStatic/class[@name="ShikiApiStatic"]/*' />
     public static class ShikiApiStatic
     {
+        private static string domen = "https://shikimori.one/";
+        private static string domenApi = "https://shikimori.one/api/";
+
         /// <include file='Docs/ExternalSummary.xml' path='docs/ShikiApiStatic/property[@name="Domen"]/*' />
-        public static string Domen { get { return "https://shikimori.one/"; } }
+        public static string Domen { get { return domen; } set { domen = value; } }
         /// <include file='Docs/ExternalSummary.xml' path='docs/ShikiApiStatic/property[@name="DomenApi"]/*' />
-        public static string DomenApi { get { return "https://shikimori.one/api/"; } }
+        public static string DomenApi { get { return domenApi; } set { domenApi = value; } }
         /// <include file='Docs/ExternalSummary.xml' path='docs/ShikiApiStatic/property[@name="ClientName"]/*' />
         public static string ClientName { get; set; } = "Shiki Desktop App";
 

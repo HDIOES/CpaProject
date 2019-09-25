@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Caching.Memory;
-
+using Microsoft.Extensions.Configuration;
 
 namespace CpaWebApp.Services.AnimeDAO
 {
@@ -14,10 +14,12 @@ namespace CpaWebApp.Services.AnimeDAO
     {
 
         private IMemoryCache _cache;
+        private IConfiguration _config;
 
-        public AnimeDAOVanilla(IMemoryCache cache)
+        public AnimeDAOVanilla(IMemoryCache cache, IConfiguration config)
         {
             this._cache = cache;
+            this._config = config;
         }
 
         public Anime Anime(int id)
@@ -37,7 +39,8 @@ namespace CpaWebApp.Services.AnimeDAO
 
         public Anime Random(ParametersAnime parameters)
         {
-            ShikimoriProvider shikimoriProvider = new ShikimoriProvider(_cache);
+
+            ShikimoriProvider shikimoriProvider = new ShikimoriProvider(_cache, _config );
 
             ShikiApiLib.AnimeShortInfo vanillaAnime = shikimoriProvider.GetRandomTitle(new Models.Request.SearchRequest());
 
@@ -46,7 +49,7 @@ namespace CpaWebApp.Services.AnimeDAO
 
         private Anime ConvertAnimeShortInfoToAnime(ShikiApiLib.AnimeShortInfo vanillaAnime)
         {
-            string shikiURL = "http://shikimori.one"; // TODO как-то не забыть вытягивать из конфига
+            string shikiURL = _config.GetValue<string>("ShikiConfig:Domen");
 
             int kind = 0; // 0 — неизвестный (дефолтный) тип
 
