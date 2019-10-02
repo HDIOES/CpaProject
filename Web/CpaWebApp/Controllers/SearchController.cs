@@ -14,12 +14,10 @@ namespace ShikimoriRandomizer.Controllers
     [Route("/api/Search/")]
     public class SearchController : Controller
     {
-        private IMemoryCache _cache;
         private IAnimeDAO _animeDAO;
 
-        public SearchController(IMemoryCache cache, IAnimeDAO animeDAO)
+        public SearchController(IAnimeDAO animeDAO)
         {
-            this._cache = cache;
             this._animeDAO = animeDAO;
         }
 
